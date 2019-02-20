@@ -59,13 +59,13 @@ background = WhaleImages(data_train, trn_images, trn_labels, re_size=RE_SZ, to_s
 background_taskloader = DataLoader(
     background,
     batch_sampler=NShotTaskSampler(background, args.episodes_per_epoch, args.n_train, args.k_train, args.q_train),
-    num_workers=8
+    num_workers=0
 )
 evaluation = WhaleImages(data_train, val_images, val_labels, re_size=RE_SZ, to_size=SZ, train=False)
 evaluation_taskloader = DataLoader(
     evaluation,
     batch_sampler=NShotTaskSampler(evaluation, args.episodes_per_epoch, args.n_test, args.k_test, args.q_test),
-    num_workers=8
+    num_workers=0
 )
 
 # Train
